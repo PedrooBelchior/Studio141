@@ -1,0 +1,157 @@
+<div class="container">
+    <h2></h2>
+  </div>
+  <br>
+  <div class="well">
+    <form #formProduto="ngForm">
+      <div class="page-wrapper  font-poppins">
+        <div class="wrapper wrapper--w680">
+          <div class="card card-4">
+            <div class="card-body">
+              <h2 class="title">Editar Produto</h2>
+
+              <div class="row row-space">
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Nome</label>
+                    <input class="input--style-4" type="text" name="nome" [(ngModel)]="request.nome" #nome="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Marca</label>
+                    <input class="input--style-4" type="text" name="marca" [(ngModel)]="request.marca" #marca="ngModel" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-space">
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Categoria</label>
+                    <input class="input--style-4" type="text" name="categoria" [(ngModel)]="request.categoria"
+                      #categoria="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Valor</label>
+                    <input class="input--style-4" type="text" name="preco" [(ngModel)]="request.preco"
+                      #preco="ngModel" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row row-space">
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Descrição</label>
+                    <input class="input--style-4" type="text" name="descricao" [(ngModel)]="request.descricao"
+                      #descricao="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Palavra Chave</label>
+                    <input class="input--style-4" type="text" name="palavraChave"
+                      [(ngModel)]="request.palavraChave" #palavraChave="ngModel" required>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label">Quantidade</label>
+                  <input class="input--style-4" type="number" min="0" name="quantidade" [(ngModel)]="request.quantidade"
+                    #quantidade="ngModel" required>
+                </div>
+              </div>
+
+
+              <h2 class="title">FAQ</h2>
+              <div class="row row-space">
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Pergunta</label>
+                    <input class="input--style-4" type="list" name="pergunta"
+                      [(ngModel)]="request.faq.pergunta" #pergunta="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="input-group">
+                    <label class="label">Resposta</label>
+                    <input class="input--style-4" type="list" name="resposta"
+                      [(ngModel)]="request.faq.resposta" #resposta="ngModel" required>
+                  </div>
+                </div>
+              </div>
+              <h2 class="title">Imagens</h2>
+              <!-- <div class="p-t-15">
+                <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+              </div> -->
+              <div class="row row-space">
+                  <div class="col-5">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-info" (click)="update()" value="Atualizar"
+                        [disabled]="formProduto.form.invalid">
+                      <a [routerLink]="['/produtos']" class="btn btn-default">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="form-group">
+                        <a [routerLink]="['/produtos/listar']"><button type="button"
+                          class="btn btn-danger botaoCancelar">Cancelar</button></a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+<!-- <h1>Editar produto</h1>
+
+<div class="well">
+  <form #formProduto="ngForm">
+    <div class="form-group">
+      <label for="name">Nome:</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="request.name" #name="ngModel"
+        minlength="5" required>
+      <div *ngIf="name.errors && name.dirty" class="alert alert-danger">
+        <div [hidden]="!name.errors.required">
+          Digite o nome do produto.
+        </div>
+        <div [hidden]="!name.errors.minlength">
+          O produto deve conter ao menos 5 caracteres.
+        </div>
+      </div>
+      <label for="details">Detalhes:</label>
+      <input type="text" class="form-control" id="details" name="details" [(ngModel)]="request.details"
+        #details="ngModel" minlength="5" required>
+      <div *ngIf="details.errors && details.dirty" class="alert alert-danger">
+        <div [hidden]="!details.errors.required">
+          Digite o detalhe do produto.
+        </div>
+        <div [hidden]="!details.errors.minlength">
+          O detalhe deve conter ao menos 5 caracteres.
+        </div>
+      </div>
+      <label for="quantity">Quantidade:</label>
+      <input type="number" class="form-control" id="quantity" name="quantity" [(ngModel)]="request.quantity"
+        #quantity="ngModel" required min="0">
+      <div *ngIf="quantity.errors && quantity.dirty" class="alert alert-danger">
+        <div [hidden]="!quantity.errors.required">
+          Insira a quantidade do produto.
+        </div>
+      </div>
+    </div>
+    <div class="form-group text-center">
+      <input type="submit" class="btn btn-success" (click)="update()" value="Atualizar">
+      <a [routerLink]="['/produtos']" class="btn btn-default">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Voltar
+      </a>
+    </div>
+  </form>
+</div> -->

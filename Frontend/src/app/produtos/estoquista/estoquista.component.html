@@ -1,0 +1,42 @@
+<div class='row'>
+    <div class='col-md-12'>
+      <div class="container">
+        <br>
+        <div class="container">
+          <h2>Lista de Produtos</h2>
+        </div>
+        <br>
+        <div class="container">
+
+
+          <div class='row marginTabela' style='text-align: center'>
+            <table class="table">
+              <thead class="thead-default tituloTabela">
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Qunatidade</th>
+                  <!-- <th scope="col">Marca</th> -->
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor='let produtos of responseProdutos'>
+                  <td scope="row"> {{ produtos.id }} </td>
+                  <td class="maxCarch">{{ produtos.nome }}</td>
+                  <td>{{ produtos.quantidade }}</td>
+                  <!-- <td>{{ produtos.marca}}</td> -->
+                  <td>
+                    <!-- <abbr title="Cadastrar">
+                      <button type="button" class="btn btn-info" [routerLink]="['/produtos/cadastrar']">
+                        <i class="fa fa-pencil">
+                        </i>
+                      </button>
+                    </abbr>&nbsp; -->
+                    <abbr title="Atualizar">
+                      <button type="button" class="btn btn-info" [routerLink]="['/estoquista/editar', produtos.id]">
+                        <i class="fa fa-pencil">
+                        </i>
+                      </button>
+                    </abbr>&nbsp;
