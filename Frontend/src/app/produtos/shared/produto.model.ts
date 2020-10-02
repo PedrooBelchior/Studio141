@@ -1,4 +1,5 @@
-export class Produto {
+export interface Produto {
+  _id: string;
   nome: string;
   marca: string;
   categoria: string;
@@ -6,21 +7,25 @@ export class Produto {
   descricao: string;
   palavraChave: string;
   quantidade: number;
-  faq:
-    {
-      pergunta: string,
-      resposta: string,
-    }
-    ;
-  imagem: [string];
+  faq: Faq[];
+  imagem: Imagem[];
 }
 
 // GET Produtos
-export class ResponseProdutos {
+export interface ResponseProdutos {
   produtos: Produto[];
 }
 
 // GET Produto
-export class ResponseProduto {
+export interface ResponseProduto {
   data: Produto;
+}
+
+export class Faq {
+  pergunta: string;
+  resposta: string;
+}
+
+export class Imagem {
+  linkImagem: string;
 }

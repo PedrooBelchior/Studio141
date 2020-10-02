@@ -11,9 +11,19 @@ import { ListarComponent } from './listar/listar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EditarComponent } from './editar/editar.component';
 import { VisualizarComponent } from './visualizar/visualizar.component';
+import { HomeComponent } from './home/home.component';
+import { PaginaProdutoComponent } from './pagina-produto/pagina-produto.component';
 
 @NgModule({
-  declarations: [ListarComponent, CadastrarComponent, EditarComponent, VisualizarComponent, EstoquistaComponent, EstoquistaEditarComponent],
+  declarations: [ListarComponent,
+    CadastrarComponent,
+    EditarComponent,
+    VisualizarComponent,
+    EstoquistaComponent,
+    EstoquistaEditarComponent,
+    HomeComponent,
+    PaginaProdutoComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,

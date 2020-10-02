@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import { ProdutoService } from '../shared/produto.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { ResponseProdutos, Faq, Imagem, Produto } from '../shared/produto.model';
+
 
 @Component({
   selector: 'app-editar',
@@ -9,7 +11,9 @@ import { ProdutoService } from '../shared/produto.service';
   styleUrls: ['../cadastrar/cadastrar.component.css']
 })
 export class EditarComponent implements OnInit {
-
+  responseProdutos: ResponseProdutos[];
+  faq: Faq = new Faq();
+  imagem: Imagem = new Imagem();
   @ViewChild('formProduto', { static: true }) formProduto: NgForm;
 
   id: string;
@@ -22,6 +26,7 @@ export class EditarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.listarTodas();
     this.id = this.route.snapshot.paramMap.get('id');
     this.produtoService.getProduto(this.id).subscribe(response => this.request = response);
   }
@@ -30,7 +35,17 @@ export class EditarComponent implements OnInit {
     if (this.formProduto.form.valid) {
       this.produtoService.updateProduto(this.id, this.request).subscribe();
       this.router.navigate(['/produtos']);
+      this.listarTodas();
     }
   }
 
+  faqs(): void {
+    this.request.faq.push(this.faq);
+    console.log(this.request.faq);
+    this.faq = new Faq();
+  }
+
+  listarTodas() {
+    this.produtoService.getProdutos().subscribe(response => this.responseProdutos = response);
+  }
 }

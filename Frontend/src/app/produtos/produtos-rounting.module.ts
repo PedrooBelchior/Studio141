@@ -5,6 +5,8 @@ import { Routes } from '@angular/router';
 import { ListarComponent } from './listar/listar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EditarComponent } from './editar/editar.component';
+import { HomeComponent } from './home/home.component';
+import { PaginaProdutoComponent } from './pagina-produto/pagina-produto.component';
 
 
 export const ProdutosRoutes: Routes = [
@@ -44,5 +46,17 @@ export const ProdutosRoutes: Routes = [
     component: EstoquistaEditarComponent
 
   },
+
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+
+  {
+    path: 'produto/:id',
+    component: PaginaProdutoComponent
+  },
+
+
 
 ];

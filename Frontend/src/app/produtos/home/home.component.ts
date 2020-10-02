@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../shared/produto.service';
 import { ResponseProdutos } from '../shared/produto.model';
 
-
 @Component({
-  selector: 'app-listar',
-  templateUrl: './listar.component.html',
-  styleUrls: ['./listar.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class ListarComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   responseProdutos: ResponseProdutos[];
 
@@ -20,14 +19,6 @@ export class ListarComponent implements OnInit {
 
   listarTodas() {
     this.produtoService.getProdutos().subscribe(response => this.responseProdutos = response);
-  }
-
-  remover(_id: string, nome: string) {
-    if (confirm(`Deseja remover o produto ${nome}?`)) {
-      this.produtoService.deleteProduto(_id).subscribe();
-      this.listarTodas();
-      location.reload();
-    }
   }
 
 }

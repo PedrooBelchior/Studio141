@@ -42,126 +42,31 @@
                 <th scope="col">Código</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Qunatidade</th>
-                <!-- <th scope="col">Marca</th> -->
                 <th scope="col">Ações</th>
               </tr>
             </thead>
             <tbody>
 
               <tr *ngFor='let produtos of responseProdutos'>
-                <td scope="row"> {{ produtos.id }} </td>
+                <td scope="row"> {{ produtos._id }} </td>
                 <td class="maxCarch">{{ produtos.nome }}</td>
                 <td>{{ produtos.quantidade }}</td>
-                <!-- <td>{{ produtos.marca}}</td> -->
                 <td>
-                  <!-- <abbr title="Cadastrar">
-                    <button type="button" class="btn btn-info" [routerLink]="['/produtos/cadastrar']">
-                      <i class="fa fa-pencil">
-                      </i>
-                    </button>
-                  </abbr>&nbsp; -->
                   <abbr title="Atualizar">
-                    <button type="button" class="btn btn-info" [routerLink]="['/produtos/editar', produtos.id]">
+                    <button type="button" class="btn btn-info" [routerLink]="['/produtos/editar', produtos._id]">
                       <i class="fa fa-pencil">
                       </i>
                     </button>
                   </abbr>&nbsp;
                   <abbr title="Visualizar">
                     <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-dark"
-                      [routerLink]="['/produtos/visualizar/', produtos.id]">
+                      [routerLink]="['/produtos/visualizar/', produtos._id]">
                       <i class="fa fa-eye">
                       </i>
                     </button>
                   </abbr>&nbsp;
                   <abbr title="Excluir">
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluirModal" (click)="remover(produtos.id, produtos.nome)">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluirModal" (click)="remover(produtos._id, produtos.nome)">
                       <i class="fa fa-trash"></i>
                     </button>
                   </abbr>&nbsp;
-                  <!-- <button type="button" class="btn btn-outline-primary centralizar" data-toggle="modal" data-target="#excluirModal">
-                    Sair
-                  </button> -->
-
-                  <!-- Modal -->
-                  <!-- <div class="modal fade" id="excluirModal" tabindex="-1" role="dialog" aria-labelledby="excluirModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="excluirModalLabel">Exclusão de Produto</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          Você deseja realmente excluir ?
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-                          <button type="submit" (click)="remover(produtos.id, produtos.nome)" class="btn btn-success">Sim!</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-
-
-
-    <!-- <h1>Produtos</h1>
-<table *ngFor="let produtos of responseProdutos" class="centralizarTexto">
-  <div class="well">
-    <form #formProduto="ngForm">
-      <div class="form-group">
-        <table class="table table-hover">
-          <thead class="thead-default tituloTabela">
-            <tr>
-              <th class="centralizarTexto" scope="col">#</th>
-              <th class="centralizarTexto" scope="col">Nome</th>
-              <th class="centralizarTexto" scope="col">Marca</th>
-              <th class="centralizarTexto" scope="col">Quantidade</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th class="centralizarTexto" scope="row">{{produtos.id}}</th>
-              <td class="centralizarTexto maxCarch">{{produtos.nome}}</td>
-              <td class="centralizarTexto">{{produtos.marca}}</td>
-              <td class="centralizarTexto">{{produtos.quantidade}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="form-group text-center">
-        <a [routerLink]="['/produtos']" class="btn btn-default">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Voltar
-        </a>
-      </div>
-    </form>
-  </div>
-  </table> -->
-    <!-- <tbody>
-    <tr>
-      <th>Produtos</th>
-      <th class="text-center">
-        <a [routerLink]="['/produtos/cadastrar']" class="btn btn-xs btn-success">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo
-        </a>
-      </th>
-    </tr>
-    <tr *ngFor="let produtos of responseProdutos">
-      <td style="width: 70px" class="text-center">
-        {{produtos.nome}}
-      </td>
-      <td class="text-center" style="width: 200px justify-content">
-        <a [routerLink]="['/produtos/editar', produtos.id]" title="Editar" alt="Editar" class="btn btn-xs btn-info">
-          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Editar
-        </a>
-        <a [routerLink]="['/produtos/visualizar', produtos.id]" title="Visualizar" alt="Visualizar" class="btn btn-xs btn-success">
-          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Visualizar
-        </a>
-        <a title="Remover" alt="Remover" class="btn btn-xs btn-danger"
-          (click)="remover(produtos.id, produtos.nome)">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remover
-        </a>
-      </td>
-    </tr>
-  </tbody> -->

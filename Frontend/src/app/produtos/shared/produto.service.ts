@@ -20,20 +20,20 @@ export class ProdutoService {
     return this.http.post<Produto>(this.API, request);
   }
 
-  getProduto(id: string): Observable<ResponseProduto> {
-    const URL = `${this.API}/${id}`;
+  getProduto(_id: string): Observable<ResponseProduto> {
+    const URL = `${this.API}/${_id}`;
 
     return this.http.get<ResponseProduto>(URL);
   }
 
-  updateProduto(id: string, request: Produto): Observable<Produto> {
-    const URL = `${this.API}/${id}`;
+  updateProduto(_id: string, request: Produto): Observable<Produto> {
+    const URL = `${this.API}/${_id}`;
 
     return this.http.put<Produto>(URL, request);
   }
 
-  deleteProduto(id: any): Observable<any> {
-    const URL = `${this.API}/${id}`;
+  deleteProduto(_id: any): Observable<any> {
+    const URL = `${this.API}/${_id}`;
 
     return this.http.delete<any>(URL);
   }

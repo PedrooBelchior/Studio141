@@ -16,26 +16,18 @@
                   <th scope="col">Código</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Qunatidade</th>
-                  <!-- <th scope="col">Marca</th> -->
                   <th scope="col">Ações</th>
                 </tr>
               </thead>
               <tbody>
 
                 <tr *ngFor='let produtos of responseProdutos'>
-                  <td scope="row"> {{ produtos.id }} </td>
+                  <td scope="row"> {{ produtos._id }} </td>
                   <td class="maxCarch">{{ produtos.nome }}</td>
                   <td>{{ produtos.quantidade }}</td>
-                  <!-- <td>{{ produtos.marca}}</td> -->
                   <td>
-                    <!-- <abbr title="Cadastrar">
-                      <button type="button" class="btn btn-info" [routerLink]="['/produtos/cadastrar']">
-                        <i class="fa fa-pencil">
-                        </i>
-                      </button>
-                    </abbr>&nbsp; -->
                     <abbr title="Atualizar">
-                      <button type="button" class="btn btn-info" [routerLink]="['/estoquista/editar', produtos.id]">
+                      <button type="button" class="btn btn-info" [routerLink]="['/estoquista/editar', produtos._id]">
                         <i class="fa fa-pencil">
                         </i>
                       </button>
