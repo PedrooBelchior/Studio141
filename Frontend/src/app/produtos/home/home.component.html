@@ -271,21 +271,25 @@
 
     <!--Section: Products v.3-->
 
-    <section class="text-center mb-4" *ngFor='let produtos of responseProdutos'>
+    <section class="text-center mb-4">
 
       <!--Grid row-->
       <div class="row wow fadeIn">
 
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4">
+        <div class="col-lg-3 col-md-6 mb-4" *ngFor='let produtos of responseProdutos'>
 
           <!--Card-->
-          <div class="card">
+          <div class="card" >
 
             <!--Card image-->
             <div class="view overlay">
-              <img src="assets/images/fender.png" style="width:200px;" class="card-img-top"
-                alt="">
+              <!-- <img src="assets/images/fender.png" style="width:200px;" class="card-img-top"
+                alt=""> -->
+                <img id="produtoImagem" [src]="produtos.imagem[0].linkImagem" class="produtoImagem" alt="">
+
+                <!-- <div id="produtoImagem" src="assets/images/fender.png" class="produtoImagem" alt=""></div> -->
+
                 <a [routerLink]="['/produto/', produtos._id]">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -296,12 +300,13 @@
             <div class="card-body text-center">
               <!--Category & Title-->
               <a href="" class="grey-text">
-                <h5>{{produtos.categoria}}</h5>
+                <!-- <h5>{{imagem.linkImagem[0]}}</h5> -->
+              <h5>{{produtos.categoria}}</h5>
               </a>
               <h5>
                 <strong>
                   <a href="" class="dark-grey-text">{{produtos.nome}}
-                    <span class="badge badge-pill danger-color">NEW</span>
+                    <!-- <span class="badge badge-pill danger-color">NEW</span> -->
                   </a>
                 </strong>
               </h5>
@@ -319,130 +324,7 @@
         </div>
         <!--Grid column-->
 
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4">
 
-          <!--Card-->
-          <div class="card">
-
-            <!--Card image-->
-            <div class="view overlay">
-              <img src="assets/images/fender2.png" style="width:200px;" class="card-img-top"
-                alt="">
-                <a [routerLink]="['/produto/', produtos._id]">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <!--Card image-->
-
-            <!--Card content-->
-            <div class="card-body text-center">
-              <!--Category & Title-->
-              <a href="" class="grey-text">
-                <h5>{{produtos.categoria}}</h5>
-              </a>
-              <h5>
-                <strong>
-                  <a href="" class="dark-grey-text">{{produtos.nome }}</a>
-                </strong>
-              </h5>
-
-              <h4 class="font-weight-bold blue-text">
-              <strong>R${{produtos.preco}}</strong>
-              </h4>
-
-            </div>
-            <!--Card content-->
-
-          </div>
-          <!--Card-->
-
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4">
-
-          <!--Card-->
-          <div class="card">
-
-            <!--Card image-->
-            <div class="view overlay">
-              <img src="assets/images/fender3.png" style="width:200px; align:center;" class="card-img-top"
-                alt="">
-                <a [routerLink]="['/produto/', produtos._id]">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <!--Card image-->
-
-            <!--Card content-->
-            <div class="card-body text-center">
-              <!--Category & Title-->
-              <a href="" class="grey-text">
-                <h5>{{produtos.categoria}}</h5>
-              </a>
-              <h5>
-                <strong>
-                  <a href="" class="dark-grey-text">{{produtos.nome }}
-                    <span class="badge badge-pill primary-color">bestseller</span>
-                  </a>
-                </strong>
-              </h5>
-
-              <h4 class="font-weight-bold blue-text">
-                <strong>R${{produtos.preco}}</strong>
-              </h4>
-
-            </div>
-            <!--Card content-->
-
-          </div>
-          <!--Card-->
-
-        </div>
-        <!--Grid column-->
-
-        <!--Fourth column-->
-        <div class="col-lg-3 col-md-6 mb-4">
-
-          <!--Card-->
-          <div class="card">
-
-            <!--Card image-->
-            <div class="view overlay">
-              <img src="assets/images/fender4.png" style="width:200px;"  class="card-img-top"
-                alt="">
-              <a [routerLink]="['/produto/', produtos._id]">
-                <div class="mask rgba-white-slight"></div>
-              </a>
-            </div>
-            <!--Card image-->
-
-            <!--Card content-->
-            <div class="card-body text-center">
-              <!--Category & Title-->
-              <a href="" class="grey-text">
-                <h5>{{produtos.categoria}}</h5>
-              </a>
-              <h5>
-                <strong>
-                  <a href="" class="dark-grey-text">{{produtos.nome}}</a>
-                </strong>
-              </h5>
-
-              <h4 class="font-weight-bold blue-text">
-                <strong>R${{produtos.preco}}</strong>
-              </h4>
-
-            </div>
-            <!--Card content-->
-
-          </div>
-          <!--Card-->
-
-        </div>
-        <!--Fourth column-->
 
       </div>
       <!--Grid row-->

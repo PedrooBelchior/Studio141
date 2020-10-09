@@ -28,7 +28,6 @@ export class ProdutoService {
 
   updateProduto(_id: string, request: Produto): Observable<Produto> {
     const URL = `${this.API}/${_id}`;
-
     return this.http.put<Produto>(URL, request);
   }
 

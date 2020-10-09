@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../shared/produto.service';
-import { ResponseProdutos } from '../shared/produto.model';
+import { ResponseProdutos, Imagem, Produto } from '../shared/produto.model';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +10,12 @@ import { ResponseProdutos } from '../shared/produto.model';
 export class HomeComponent implements OnInit {
 
   responseProdutos: ResponseProdutos[];
+  imagem: Imagem = new Imagem();
+  id: string;
+  request: any;
 
-  constructor(private produtoService: ProdutoService) { }
+
+  constructor(private produtoService: ProdutoService) {}
 
   ngOnInit(): void {
     this.listarTodas();

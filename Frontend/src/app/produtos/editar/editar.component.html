@@ -81,8 +81,115 @@
                       [(ngModel)]="faq.resposta" #resposta="ngModel" >
                   </div>
                 </div>
+                <input type="submit" class="btn btn-success" (click)="faqs()" value="Adicionar FAQ">
               </div>
+
+
+
+            <div class='row marginTabela' style='text-align: center'>
+              <table class="table">
+                <thead class="thead-default tituloTabela">
+                  <tr>
+                    <th scope="col">Pergunta</th>
+                    <th scope="col">Resposta</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor='let faqs of request.faq; let i = index'>
+                    <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                    <td class="maxCarch">{{ faqs.pergunta }}</td>
+                    <td class="maxCarch">{{ faqs.resposta }}</td>
+                    <td>
+
+                      <abbr title="Excluir">
+                        <button type="button" (click)="selecionarItem(i)" class="btn btn-danger" data-toggle="modal" data-target="#removerProduto">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </abbr>&nbsp;
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Modal Excluir-->
+            <div class="modal fade" id="removerProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    Deseja realmente remover o FAQ selecionado ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger"
+                      (click)="cancelarFaq()">Remover</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
               <h2 class="title">Imagens</h2>
+              <div class="row row-space">
+                <div class="col-10">
+                  <div class="input-group">
+                    <label class="label">Link da Imagem</label>
+                    <input class="input--style-4" type="list" name="pergunta"
+                      [(ngModel)]="imagem.linkImagem" #pergunta="ngModel">
+                  </div>
+                </div>
+                <input type="submit" class="btn btn-success" (click)="imagens()" value="Adicionar Link da Imagem">
+              </div>
+
+
+
+            <div class='row marginTabela' style='text-align: center'>
+              <table class="table">
+                <thead class="thead-default tituloTabela">
+                  <tr>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor='let imagens of request.imagem; let x = index'>
+                    <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                    <td class="maxCarch">
+                      <img [src]="imagens.linkImagem" />
+
+                    </td>
+                    <td>
+
+                      <abbr title="Excluir">
+                          <button type="button" (click)="selecionarItem(x)" class="btn btn-danger" data-toggle="modal" data-target="#removerImagem">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </abbr>&nbsp;
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- Modal Excluir-->
+              <div class="modal fade" id="removerImagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      Deseja realmente remover a imagem selecionada ?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="button" data-dismiss="modal" class="btn btn-danger"
+                        (click)="cancelarImagem()">Remover</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <br>
 
               <div class="row row-space">
                   <div class="col-5">

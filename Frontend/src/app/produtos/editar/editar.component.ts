@@ -14,6 +14,7 @@ export class EditarComponent implements OnInit {
   responseProdutos: ResponseProdutos[];
   faq: Faq = new Faq();
   imagem: Imagem = new Imagem();
+  itemSelected: any;
   @ViewChild('formProduto', { static: true }) formProduto: NgForm;
 
   id: string;
@@ -43,6 +44,24 @@ export class EditarComponent implements OnInit {
     this.request.faq.push(this.faq);
     console.log(this.request.faq);
     this.faq = new Faq();
+  }
+
+  imagens(): void {
+    this.request.imagem.push(this.imagem);
+    console.log(this.request.imagem);
+    this.imagem = new Imagem();
+  }
+
+  selecionarItem(itemSelecionado: any) {
+    this.itemSelected = itemSelecionado;
+  }
+
+
+  cancelarFaq() {
+    this.request.faq.splice(this.itemSelected, 1);
+  }
+  cancelarImagem() {
+    this.request.imagem.splice(this.itemSelected, 1);
   }
 
   listarTodas() {

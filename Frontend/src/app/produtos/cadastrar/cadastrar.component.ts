@@ -13,6 +13,7 @@ export class CadastrarComponent implements OnInit {
   responseProdutos: ResponseProdutos[];
   faq: Faq = new Faq();
   imagem: Imagem = new Imagem();
+  itemSelected: any;
   @ViewChild('formProduto', { static: true }) formProduto: NgForm;
 
   request: Produto = {
@@ -34,12 +35,31 @@ export class CadastrarComponent implements OnInit {
     this.faq = new Faq();
   }
 
+  imagens(): void {
+    this.request.imagem.push(this.imagem);
+    console.log(this.request.imagem);
+    this.imagem = new Imagem();
+  }
+
+  selecionarItem(itemSelecionado: any) {
+    this.itemSelected = itemSelecionado;
+  }
+
+
+  cancelarFaq() {
+    this.request.faq.splice(this.itemSelected, 1);
+  }
+  cancelarImagem() {
+    this.request.imagem.splice(this.itemSelected, 1);
+  }
+
   constructor(
     private produtoService: ProdutoService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.listarTodas();
   }
 
   listarTodas() {

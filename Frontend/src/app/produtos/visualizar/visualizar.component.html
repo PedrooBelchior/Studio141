@@ -9,7 +9,7 @@
         <div class="card card-4">
           <div class="card-body" style="text-align: center;">
             <h2 class="title">Visualizar Produto</h2>
-            <img src="assets/images/semimagem.jpg" style="width: 500px; height:500px">
+            <img [src]="request.imagem[0].linkImagem" class="produtoImagem" alt="">
 
             <h2 class="title">{{request.nome}}</h2>
             <div>

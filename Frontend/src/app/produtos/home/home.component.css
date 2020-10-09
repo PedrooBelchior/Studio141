@@ -22,3 +22,14 @@ header,
     height: 100vh;
   }
 }
+
+#produtoImagem {
+  width: 150px;
+  height: 420px;
+  /* background-image: url("/assets/images/fender.png"); */
+  background-repeat: no-repeat;
+  background-size: 160px;
+  position: relative;
+  justify-content: center;
+  margin-left: 50px;
+}
