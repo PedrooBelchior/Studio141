@@ -649,3 +649,42 @@
    appearance: textfield;
 
   }
+#produtoImagem {
+  width: 15px;
+  height: 42px;
+  /* background-image: url("/assets/images/fender.png"); */
+  background-repeat: no-repeat;
+  background-size: 160px;
+  position: relative;
+  justify-content: center;
+  margin-left: 50px;
+}
+
+.imagemFormatada{
+  max-width:200px;
+  max-height:150px;
+  width: auto;
+  height: auto;
+}
+
+.modal-top-center{
+  right:0px;
+  top:50px;
+  left: 500px;
+  bottom: auto;
+}
+
+.btn-notify {
+  margin: .375rem;
+  display: inline-block;
+  line-height: 50px;
+  padding: 10px 50px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+}

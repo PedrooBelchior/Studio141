@@ -45,14 +45,14 @@
             <div class="row row-space">
               <div class="col-5">
                 <div class="input-group">
-                  <label class="label">Descrição</label>
+                  <label class="label">Descrição Prévia</label>
                   <input class="input--style-4" type="text" name="descricao" [(ngModel)]="request.descricao"
                     #descricao="ngModel" required>
                 </div>
               </div>
               <div class="col-5">
                 <div class="input-group">
-                  <label class="label">Palavra Chave</label>
+                  <label class="label">Descrição Detalhada</label>
                   <input class="input--style-4" type="text" name="palavraChave" [(ngModel)]="request.palavraChave"
                     #palavraChave="ngModel" required>
                 </div>
@@ -71,15 +71,15 @@
               <div class="col-5">
                 <div class="input-group">
                   <label class="label">Pergunta</label>
-                  <input class="input--style-4" type="list" name="pergunta"
-                    [(ngModel)]="faq.pergunta" #pergunta="ngModel">
+                  <input class="input--style-4" type="list" name="pergunta" [(ngModel)]="faq.pergunta"
+                    #pergunta="ngModel">
                 </div>
               </div>
               <div class="col-5">
                 <div class="input-group">
                   <label class="label">Resposta</label>
-                  <input class="input--style-4" type="list" name="resposta"
-                    [(ngModel)]="faq.resposta" #resposta="ngModel" >
+                  <input class="input--style-4" type="list" name="resposta" [(ngModel)]="faq.resposta"
+                    #resposta="ngModel">
                 </div>
               </div>
               <input type="submit" class="btn btn-success" (click)="faqs()" value="Adicionar FAQ">
@@ -87,85 +87,105 @@
 
 
 
-          <div class='row marginTabela' style='text-align: center'>
-            <table class="table">
-              <thead class="thead-default tituloTabela">
-                <tr>
-                  <th scope="col">Pergunta</th>
-                  <th scope="col">Resposta</th>
-                  <th scope="col">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
+            <div class='row marginTabela' style='text-align: center'>
+              <table class="table">
+                <thead class="thead-default tituloTabela">
+                  <tr>
+                    <th scope="col">Pergunta</th>
+                    <th scope="col">Resposta</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-                <tr *ngFor='let faqs of request.faq; let i = index'>
-                  <!-- <td scope="row"> {{ faqs._id }} </td> -->
-                  <td class="maxCarch">{{ faqs.pergunta }}</td>
-                  <td class="maxCarch">{{ faqs.resposta }}</td>
-                  <td>
+                  <tr *ngFor='let faqs of request.faq; let i = index'>
+                    <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                    <td class="maxCarch">{{ faqs.pergunta }}</td>
+                    <td class="maxCarch">{{ faqs.resposta }}</td>
+                    <td>
 
-                    <abbr title="Excluir">
-                      <button type="button" (click)="selecionarItem(i)" class="btn btn-danger" data-toggle="modal" data-target="#removerProduto">
-                        <i class="fa fa-trash"></i>
-                      </button>
-                    </abbr>&nbsp;
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- Modal Excluir-->
-          <div class="modal fade" id="removerProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  Deseja realmente remover o FAQ selecionado ?
+                      <abbr title="Excluir">
+                        <button type="button" (click)="selecionarItem(i)" class="btn btn-danger" data-toggle="modal"
+                          data-target="#removerProduto">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </abbr>&nbsp;
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>&nbsp;
+            <!-- Modal Excluir-->
+            <div class="modal fade"  id="removerProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-sm modal-notify modal-danger modal-side modal-top-center" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                  <!--Header-->
+                  <div class="modal-header d-flex justify-content-center">
+                    <h2 class="heading">Tem certeza?</h2>
+                  </div>
+
+                  <!--Body-->
+                  <div class="modal-body">
+
+                    <i class="fas fa-times fa-4x animated rotateIn"></i>
+                    Deseja realmente remover o FAQ selecionado ?
+                  </div>
+
+                  <!--Footer-->
+                  <div class="modal-footer justify-content-center">
+                      <button type="button" data-dismiss="modal"
+                      class="btn btn-notify btn-outline-danger waves-effect waves-light" (click)="cancelarFaq()">Sim</button>
+                    <a type="button" class="btn btn-notify btn-danger waves-effect" data-dismiss="modal">Não</a>
+                  </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                  <button type="button" data-dismiss="modal" class="btn btn-danger"
-                    (click)="cancelarFaq()">Remover</button>
-                </div>
+                <!--/.Content-->
               </div>
             </div>
-          </div>
-          <br>
-
-            <h2 class="title">Imagens</h2>
+            <br>
+            <div class="title">
+              <p>Escolha uma imagem para fazer Upload</p>
+            </div>
+            
+            <div class="dropzone">
+              <div class="info"></div>
+            </div>
             <div class="row row-space">
               <div class="col-10">
+
                 <div class="input-group">
-                  <label class="label">Link da Imagem</label>
-                  <input class="input--style-4" type="list" name="pergunta"
-                    [(ngModel)]="imagem.linkImagem" #pergunta="ngModel">
+                  
+                  <input class="input--style-4" type="list" name="pergunta" [(ngModel)]="imagem.linkImagem"
+                    #pergunta="ngModel">
                 </div>
               </div>
-              <input type="submit" class="btn btn-success" (click)="imagens()" value="Adicionar Link da Imagem">
-            </div>
+              <input type="submit" class="btn btn-success" (click)="imagens()" value="Carregar da Imagem">
+            </div>&nbsp;
 
 
 
-          <div class='row marginTabela' style='text-align: center'>
-            <table class="table">
-              <thead class="thead-default tituloTabela">
-                <tr>
-                  <th scope="col">Imagem</th>
-                  <th scope="col">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
+            <div class='row marginTabela' style='text-align: center'>
+              <table class="table">
+                <thead class="thead-default tituloTabela">
+                  <tr>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-                <tr *ngFor='let imagens of request.imagem; let x = index'>
-                  <!-- <td scope="row"> {{ faqs._id }} </td> -->
-                  <td class="maxCarch">
-                    <img [src]="imagens.linkImagem" />
+                  <tr *ngFor='let imagens of request.imagem; let x = index'>
+                    <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                    <td class="maxCarch">
+                      <img [src]="imagens.linkImagem" class="imagemFormatada" />
 
-                  </td>
-                  <td>
+                    </td>
+                    <td>
 
-                    <abbr title="Excluir">
-                        <button type="button" (click)="selecionarItem(x)" class="btn btn-danger" data-toggle="modal" data-target="#removerImagem">
+                      <abbr title="Excluir">
+                        <button type="button" (click)="selecionarItem(x)" class="btn btn-danger" data-toggle="modal"
+                          data-target="#removerImagem">
                           <i class="fa fa-trash"></i>
                         </button>
                       </abbr>&nbsp;
@@ -175,40 +195,72 @@
               </table>
             </div>
             <!-- Modal Excluir-->
-            <div class="modal fade" id="removerImagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+
+
+            <div class="modal fade"  id="removerImagem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
+              <div class="modal-dialog modal-sm modal-notify modal-danger modal-side modal-top-center" role="document">
+                <!--Content-->
+                <div class="modal-content text-center">
+                  <!--Header-->
+                  <div class="modal-header d-flex justify-content-center">
+                    <h2 class="heading">Tem certeza?</h2>
+                  </div>
+
+                  <!--Body-->
+                  <div class="modal-body">
+
+                    <i class="fas fa-times fa-4x animated rotateIn"></i>
                     Deseja realmente remover a imagem selecionada ?
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+                  <!--Footer-->
+                  <div class="modal-footer justify-content-center">
+                      <button type="button" data-dismiss="modal"
+                      class="btn btn-notify btn-outline-danger waves-effect waves-light" (click)="cancelarImagem()">Sim</button>
+                    <a type="button" class="btn btn-notify btn-danger waves-effect" data-dismiss="modal">Não</a>
+                  </div>
+                </div>
+                <!--/.Content-->
+              </div>
+              <!-- <div class="modal-dialog modal-side modal-top-right" role="document">
+                <div class="modal-content">
+                    <br>
+                  <div class="modal-header">
+                    <h2>&nbsp;Remover Imagem&nbsp;</h2><br>
+                  </div>
+                  <br>
+                  <div class="modal-body">
+                    Deseja realmente remover a imagem selecionada ?
+                  </div>
+                  <br>
+                  <div class="modal-footer"><br>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>&nbsp;
                     <button type="button" data-dismiss="modal" class="btn btn-danger"
                       (click)="cancelarImagem()">Remover</button>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
-          <br>
+            <br>
 
             <div class="row row-space">
-                <div class="col-5">
-                  <div class="form-group">
-                      <input type="button" class="btn btn-success" (click)="register()" value="Cadastrar"
-                      [disabled]="formProduto.form.invalid">
-                    <a [routerLink]="['/produtos']" class="btn btn-default">
-                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-5">
-                  <div class="form-group">
-                      <a [routerLink]="['/produtos/listar']"><button type="button"
-                        class="btn btn-danger botaoCancelar">Cancelar</button></a>
-                  </div>
+              <div class="col-5">
+                <div class="form-group">
+                  <input type="button" class="btn btn-success" (click)="register()" value="Cadastrar"
+                    [disabled]="formProduto.form.invalid">
+                  <a [routerLink]="['/produtos']" class="btn btn-default">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  </a>
                 </div>
               </div>
+              <div class="col-5">
+                <div class="form-group">
+                  <a [routerLink]="['/produtos/listar']"><button type="button"
+                      class="btn btn-danger botaoCancelar">Cancelar</button></a>
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>

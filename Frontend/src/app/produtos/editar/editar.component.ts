@@ -28,6 +28,7 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarTodas();
+    this.loadScripts();
     this.id = this.route.snapshot.paramMap.get('id');
     this.produtoService.getProduto(this.id).subscribe(response => this.request = response);
   }
@@ -47,9 +48,13 @@ export class EditarComponent implements OnInit {
   }
 
   imagens(): void {
-    this.request.imagem.push(this.imagem);
-    console.log(this.request.imagem);
-    this.imagem = new Imagem();
+    if (this.request.imagem.length !== 7) {
+      this.request.imagem.push(this.imagem);
+      console.log(this.request.imagem);
+      this.imagem = new Imagem();
+    } else {
+      confirm('Limite máximo de imagens atingido, por favor apague uma, se quiser adicionar mais imagens');
+    }
   }
 
   selecionarItem(itemSelecionado: any) {
@@ -66,5 +71,21 @@ export class EditarComponent implements OnInit {
 
   listarTodas() {
     this.produtoService.getProdutos().subscribe(response => this.responseProdutos = response);
+  }
+
+  loadScripts() {
+    const dynamicScripts = [
+      '../../../assets/js/upload.js',
+      '../../../assets/js/imgur.js'
+
+    ];
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < dynamicScripts.length; i++) {
+      const node = document.createElement('script');
+      node.src = dynamicScripts[i];
+      node.type = 'text/javascript';
+      node.async = false;
+      document.getElementsByTagName('head')[0].appendChild(node);
+    }
   }
 }

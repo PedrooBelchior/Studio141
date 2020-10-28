@@ -102,7 +102,7 @@
 
     <!--First slide-->
     <div class="carousel-item active">
-      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%282%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+      <div class="view" style="background-image: url('https://www.wallpaperup.com/uploads/wallpapers/2014/03/31/316373/e4cde8daf55b977825e799c733c87eb1-700.jpg'); background-repeat: no-repeat; background-size: cover;">
 
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -136,7 +136,7 @@
 
     <!--Second slide-->
     <div class="carousel-item">
-      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%283%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+      <div class="view" style="background-image: url('https://c1.wallpaperflare.com/preview/295/949/224/marshall-amp-amplifer-speaker.jpg'); background-repeat: no-repeat; background-size: cover;">
 
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -170,7 +170,7 @@
 
     <!--Third slide-->
     <div class="carousel-item">
-      <div class="view" style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%285%29.jpg'); background-repeat: no-repeat; background-size: cover;">
+      <div class="view" style="background-image: url('https://c4.wallpaperflare.com/wallpaper/962/807/768/guitar-marshall-musical-instrument-music-wallpaper-preview.jpg'); background-repeat: no-repeat; background-size: cover;">
 
         <!-- Mask & flexbox options-->
         <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -299,13 +299,13 @@
             <!--Card content-->
             <div class="card-body text-center">
               <!--Category & Title-->
-              <a href="" class="grey-text">
+              <a [routerLink]="['/produto/', produtos._id]" class="grey-text">
                 <!-- <h5>{{imagem.linkImagem[0]}}</h5> -->
               <h5>{{produtos.categoria}}</h5>
               </a>
               <h5>
                 <strong>
-                  <a href="" class="dark-grey-text">{{produtos.nome}}
+                  <a [routerLink]="['/produto/', produtos._id]" class="dark-grey-text">{{produtos.nome}}
                     <!-- <span class="badge badge-pill danger-color">NEW</span> -->
                   </a>
                 </strong>
