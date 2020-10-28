@@ -53,8 +53,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="https://github.com/PedrooBelchior/Studio141" class="nav-link border border-light rounded waves-effect"
-            target="_blank">
+          <a href="https://github.com/PedrooBelchior/Studio141"
+            class="nav-link border border-light rounded waves-effect" target="_blank">
             <i class="fab fa-github mr-2"></i>Studio141
           </a>
         </li>
@@ -66,23 +66,24 @@
 </nav>
 <nav class="navbar navbar-expand-lg navbar-dark black">
   <div class="container">
-      <a class="navbar-brand" routerLink="/home"><strong>Navbar</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="/home">Link</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="/home">Profile</a>
-              </li>
-          </ul>
-      </div>
+    <a class="navbar-brand" routerLink="/home"><strong>Navbar</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Profile</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 <!-- Navbar -->
@@ -96,8 +97,85 @@
 
       <!--Grid column-->
       <div class="col-md-6 mb-4">
+        <div class="container mt-5">
+          <div class="carousel-container position-relative row">
 
-        <img [src]="request.imagem[0].linkImagem" class="img-fluid" alt="">
+            <!-- Sorry! Lightbox doesn't work - yet. -->
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-slide-number="0">
+                  <img [src]="request.imagem[1].linkImagem" class="imagemFormatada" alt="..."
+                    data-remote="https://source.unsplash.com/Pn6iimgM-wo/" data-type="image" data-toggle="lightbox"
+                    data-gallery="example-gallery">
+                </div>
+                <div class="carousel-item" data-slide-number="1">
+                  <img [src]="request.imagem[2].linkImagem" class="imagemFormatada" alt="..."
+                    data-remote="https://source.unsplash.com/tXqVe7oO-go/" data-type="image" data-toggle="lightbox"
+                    data-gallery="example-gallery">
+                </div>
+                <div class="carousel-item" data-slide-number="2">
+                  <img [src]="request.imagem[3].linkImagem" class="imagemFormatada" alt="..."
+                    data-remote="https://source.unsplash.com/qlYQb7B9vog/" data-type="image" data-toggle="lightbox"
+                    data-gallery="example-gallery">
+                </div>
+                <div class="carousel-item" data-slide-number="3">
+                  <img [src]="request.imagem[4].linkImagem" class="imagemFormatada" alt="..."
+                    data-remote="https://source.unsplash.com/QfEfkWk1Uhk/" data-type="image" data-toggle="lightbox"
+                    data-gallery="example-gallery">
+                </div>
+                <div class="carousel-item" data-slide-number="4">
+                  <img [src]="request.imagem[5].linkImagem" class="imagemFormatada" alt="..."
+                    data-remote="https://source.unsplash.com/CSIcgaLiFO0/" data-type="image" data-toggle="lightbox"
+                    data-gallery="example-gallery">
+                </div>
+                <div class="carousel-item" data-slide-number="5">
+                  <img [src]="request.imagem[6].linkImagem" class="imagemFormatada" alt="..."
+                    data-remote="https://source.unsplash.com/a_xa7RUKzdc/" data-type="image" data-toggle="lightbox"
+                    data-gallery="example-gallery">
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel Navigation -->
+
+
+          </div> <!-- /row -->
+          <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row mx-0">
+                  <div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2 selected"
+                    data-target="#myCarousel" data-slide-to="0">
+                    <img [src]="request.imagem[1].linkImagem" class="img-fluid imagemFormatadaThumb" alt="...">
+                  </div>
+                  <div id="carousel-selector-1" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                    data-slide-to="1">
+                    <img [src]="request.imagem[2].linkImagem" class=" img-fluid imagemFormatadaThumb" alt="...">
+                  </div>
+                  <div id="carousel-selector-2" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                    data-slide-to="2">
+                    <img [src]="request.imagem[3].linkImagem" class="img-fluid imagemFormatadaThumb" alt="...">
+                  </div>
+                  <div id="carousel-selector-3" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                    data-slide-to="3">
+                    <img [src]="request.imagem[4].linkImagem" class="img-fluid imagemFormatadaThumb" alt="...">
+                  </div>
+                  <div id="carousel-selector-4" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                    data-slide-to="4">
+                    <img [src]="request.imagem[5].linkImagem" class="img-fluid imagemFormatadaThumb" alt="...">
+                  </div>
+                  <div id="carousel-selector-5" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel"
+                    data-slide-to="5">
+                    <img [src]="request.imagem[6].linkImagem" class="img-fluid imagemFormatadaThumb" alt="...">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+        <!-- <img [src]="request.imagem[0].linkImagem" class="img-fluid" alt=""> -->
 
       </div>
       <!--Grid column-->
@@ -110,7 +188,7 @@
 
           <div class="mb-3">
             <a href="">
-            <span class="badge purple mr-1">{{request.categoria}}</span>
+              <span class="badge purple mr-1">{{request.categoria}}</span>
             </a>
             <a href="">
               <span class="badge blue mr-1">New</span>
@@ -128,9 +206,10 @@
           </p>
           <p class="lead font-weight-bold">Nome</p>
           <p>{{request.nome}}</p>
-          <p class="lead font-weight-bold">Descrição</p>
-
+          <p class="lead font-weight-bold">Descrição Prévia</p>
           <p>{{request.descricao}}</p>
+          <p class="lead font-weight-bold">Descrição Detalhada</p>
+          <p>{{request.palavraChave}}</p>
 
           <form class="d-flex justify-content-left">
             <!-- Default input -->
@@ -160,9 +239,27 @@
 
         <h4 class="my-4 h4">Informações Adicionais</h4>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit
-          voluptates,
-          quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
+        <div class='row marginTabela' style='text-align: center'>
+          <p class="lead font-weight-bold">FAQ's</p>
+          <table class="table">
+            <thead class="thead-default tituloTabela">
+              <tr>
+                <th scope="col">Pergunta</th>
+                <th scope="col">Resposta</th>
+          
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor='let faqs of request.faq; let i = index'>
+                <!-- <td scope="row"> {{ faqs._id }} </td> -->
+                <td class="maxCarch">{{ faqs.pergunta }}</td>
+                <td class="maxCarch">{{ faqs.resposta }}</td>
+              
+              </tr>
+            </tbody>
+          </table>
+        </div>&nbsp;
 
       </div>
       <!--Grid column-->
@@ -176,7 +273,7 @@
       <!--Grid column-->
       <div class="col-lg-4 col-md-12 mb-4">
 
-        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+        <img [src]="request.imagem[3].linkImagem" class="img-fluid" alt="">
 
       </div>
       <!--Grid column-->
@@ -184,7 +281,7 @@
       <!--Grid column-->
       <div class="col-lg-4 col-md-6 mb-4">
 
-        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+        <img [src]="request.imagem[4].linkImagem" class="img-fluid" alt="">
 
       </div>
       <!--Grid column-->
@@ -192,7 +289,7 @@
       <!--Grid column-->
       <div class="col-lg-4 col-md-6 mb-4">
 
-        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+        <img [src]="request.imagem[5].linkImagem" class="img-fluid" alt="">
 
       </div>
       <!--Grid column-->
@@ -209,8 +306,7 @@
 
   <!--Call to action-->
   <div class="pt-4">
-    <a class="btn btn-outline-white" routerLink="/home" target="_blank"
-      role="button">Lorem Ips
+    <a class="btn btn-outline-white" routerLink="/home" target="_blank" role="button">Lorem Ips
       <i class="fas fa-download ml-2"></i>
     </a>
     <a class="btn btn-outline-white" routerLink="/home" target="_blank" role="button">Lorem Ipsum
@@ -266,4 +362,3 @@
 
 </footer>
 <!--/.Footer-->
-
