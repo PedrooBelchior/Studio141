@@ -1,6 +1,7 @@
 import { TaskService } from './shared/task.service';
-import { Controller, Get, Param, Body, Post, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Param, Body, Post, Put, Delete, UseGuards } from '@nestjs/common';
 import { Task } from './shared/task';
+import { JwtAuthGuard } from './../auth/shared/jwt-auth.guard';
 
 @Controller('produtos')
 export class TasksController {
@@ -15,22 +16,22 @@ export class TasksController {
 
 
     @Get(':id')
-    async getById(@Param('id') id: string): Promise<Task>{
+    async getById(@Param('id') id: string): Promise<Task> {
         return this.tasksService.getById(id);
     }
-
+    @UseGuards(JwtAuthGuard)
     @Post()
-    async create(@Body() task: Task): Promise<Task>{
+    async create(@Body() task: Task): Promise<Task> {
         return this.tasksService.create(task);
     }
-
+    
     @Put(':id')
-    async update(@Param('id') id: string, @Body() task: Task): Promise<Task>{
+    async update(@Param('id') id: string, @Body() task: Task): Promise<Task> {
         return this.tasksService.update(id, task);
     }
-
+    @UseGuards(JwtAuthGuard)
     @Delete(':id')
-    async delete(@Param('id') id: string){
+    async delete(@Param('id') id: string) {
         this.tasksService.delete(id);
     }
 

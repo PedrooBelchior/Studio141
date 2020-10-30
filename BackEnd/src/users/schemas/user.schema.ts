@@ -2,9 +2,10 @@ import * as mongoose from 'mongoose';
 
 export const UserSchema = new mongoose.Schema({
     usuario: String,
-    senha: String,
+    password: String,
+    email: String,
+    cpf: String,
     tipo: String,
     nome: String,
-    statusUsuario: String
-      
+    statusUsuario: String,
 })
