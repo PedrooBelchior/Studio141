@@ -19,7 +19,7 @@ export class TasksController {
     async getById(@Param('id') id: string): Promise<Task> {
         return this.tasksService.getById(id);
     }
-    @UseGuards(JwtAuthGuard)
+    
     @Post()
     async create(@Body() task: Task): Promise<Task> {
         return this.tasksService.create(task);
@@ -29,7 +29,7 @@ export class TasksController {
     async update(@Param('id') id: string, @Body() task: Task): Promise<Task> {
         return this.tasksService.update(id, task);
     }
-    @UseGuards(JwtAuthGuard)
+   
     @Delete(':id')
     async delete(@Param('id') id: string) {
         this.tasksService.delete(id);
