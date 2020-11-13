@@ -1,9 +1,13 @@
 export interface User {
     _id: string;
     usuario: string;
-    senha: string;
+    password: string;
+    email: string,
+    cpf: any,
+    endereco: Endereco[];
     tipo: string;
     nome: string;
+    sobrenome: string;
     statusUsuario: string;
 }
 
@@ -16,3 +20,14 @@ export interface ResponseUsers {
 export interface ResponseUser {
     data: User;
 }
+
+export class Endereco {
+    rua: string;
+    numero: string;
+    bairro: string;
+    complemento: string;
+    cep: string;
+    cidade: string;
+    estado: string;
+    pais: string;
+  }

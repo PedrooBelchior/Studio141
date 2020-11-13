@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ResponseUsers } from '../shared/user.model';
+import { ResponseUsers, User } from '../shared/user.model';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../shared/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,8 +19,16 @@ export class UsersEditarComponent implements OnInit {
   id: string;
   request: any;
 
+  // request: User = {
+  //   _id: null,
+  //   usuario: null,
+  //   senha: null,
+  //   tipo: null,
+  //   nome: null,
+  //   statusUsuario: null,
+  // }
   constructor(
-    private produtoService: UserService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
@@ -28,19 +36,20 @@ export class UsersEditarComponent implements OnInit {
   ngOnInit(): void {
     this.listarTodas();
     this.id = this.route.snapshot.paramMap.get('id');
-    this.produtoService.getUser(this.id).subscribe(response => this.request = response);
+    //this.request apresentando erro, mas funcionando perfeitamente.
+    this.userService.getUser(this.id).subscribe(response => this.request = response);
   }
 
   update(): void {
     if (this.formProduto.form.valid) {
-      this.produtoService.updateUser(this.id, this.request).subscribe();
+      this.userService.updateUser(this.id, this.request).subscribe();
       this.router.navigate(['/users/listar']);
       this.listarTodas();
     }
   }
 
   listarTodas() {
-    this.produtoService.getUsers().subscribe(response => this.responseUsers = response);
+    this.userService.getUsers().subscribe(response => this.responseUsers = response);
   }
 
 }

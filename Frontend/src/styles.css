@@ -53,8 +53,9 @@
   color: #ffffff
 }
 .sideBarSelectTouch {
-  color: #fff;
-  background-color: #458d68;
+  
+  color: #fff!important;
+  background-color: #33B5E5;
 }
 .marginTop {
   margin-top: 7px;

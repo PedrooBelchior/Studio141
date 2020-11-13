@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, Form, FormGroup, FormControl } from '@angular/forms';
-import { User, ResponseUsers } from '../shared/user.model';
+import { User, ResponseUsers, Endereco } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
 
@@ -12,15 +12,19 @@ import { Router } from '@angular/router';
 export class UsersCadastrarComponent implements OnInit {
 
   responseUsers: ResponseUsers[];
-
+  endereco: Endereco = new Endereco();
   @ViewChild('formProduto', { static: true }) formProduto: NgForm;
 
   request: User = {
     _id: null,
     usuario: null,
-    senha: null,
+    password: null,
+    email: null,
+    cpf: null,
+    endereco: [],
     tipo: null,
     nome: null,
+    sobrenome: null,
     statusUsuario: null,
   };
 
