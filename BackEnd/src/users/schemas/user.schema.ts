@@ -5,7 +5,7 @@ export const UserSchema = new mongoose.Schema({
     password: String,
     email: String,
     cpf: String,
-    endereco:[
+    endereco: [
         {
             rua: String,
             numero: String,
@@ -21,4 +21,23 @@ export const UserSchema = new mongoose.Schema({
     nome: String,
     sobrenome: String,
     statusUsuario: String,
+    pedido: 
+    [
+        {
+            numero: String,
+            data: String,
+            hora: String,
+            status: String,
+            valorTotal: String,
+            itens: 
+            [
+                    {
+                        nome: String,
+                        quantidade: String,
+                        valorUnitario: String
+                    }
+
+            ],
+        }
+    ],
 })

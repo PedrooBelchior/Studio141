@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
+
   constructor(
     private accountService: AccountService,
     private router: Router
@@ -24,7 +25,9 @@ export class LoginComponent implements OnInit {
   async onSubmit() {
     try {
       const result = await this.accountService.login(this.login);
-      console.log(`Login efetuado: ${result}`);
+      const resultToken = await this.accountService.getUser();
+      // console.log(`Login efetuado: ${result}`);
+      // console.log(`ID Usuário: ${resultToken}`);
 
       // navego para a rota vazia novamente
       this.router.navigate(['']);

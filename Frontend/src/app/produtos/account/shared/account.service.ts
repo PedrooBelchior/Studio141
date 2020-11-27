@@ -70,10 +70,18 @@ export class AccountService {
     return date;
   }
 
-  // getUser(token: string){
-  //   const decoded: any = jwt_decode(token);
-  //   if (decoded.sub != null) {
-  //     return decoded.sub;
-  //   }
-  // }
+  // Pego  o usuário logado, descriptografo a sessão, pego seu ID e seto no localStorage
+  // Para utilizar depois no header e no restante do site.
+  getUser(){
+    //Pego o token
+    const token = this.getAuthorizationToken();
+    //Descriptografo a sessão, pego o ID do usuário
+    const decoded: any = jwt_decode(token);
+    if (decoded.sub != null) {
+      //Seto  o ID no localStorage
+      window.localStorage.setItem('id', decoded.sub );
+      // console.log(decoded.sub);
+      return decoded.sub;
+    }
+  }
 }

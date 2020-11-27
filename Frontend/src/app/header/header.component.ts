@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var $: any;
 @Component({
   selector: 'app-header',
@@ -7,7 +8,9 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 
@@ -17,6 +20,12 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     location.reload();
     }
+  }
+  acessarUsuario():void{
+    const id = window.localStorage.getItem('id');
+    this.router.navigate(['/editar-usuario/',`${id}`]);
+    // console.log(id);
+    
   }
 
 }

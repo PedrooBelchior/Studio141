@@ -3,6 +3,7 @@ import { ResponseProdutos } from '../shared/produto.model';
 import { NgForm } from '@angular/forms';
 import { ProdutoService } from '../shared/produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CestaService } from './../testes/shared/cesta.service';
 
 @Component({
   selector: 'app-pagina-produto',
@@ -18,6 +19,7 @@ export class PaginaProdutoComponent implements OnInit {
   request: any;
 
   constructor(
+    private cestaService: CestaService,
     private produtoService: ProdutoService,
     private route: ActivatedRoute,
     private router: Router
@@ -26,6 +28,14 @@ export class PaginaProdutoComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.produtoService.getProduto(this.id).subscribe(response => this.request = response);
+    console.log(this.id);
+    
+  }
+
+  addCesta(id:any){
+    this.cestaService.addCesta(this.id);
+    window.alert('O produto foi adicionado a cesta!!');
+    console.log(this.id);
   }
 
 }

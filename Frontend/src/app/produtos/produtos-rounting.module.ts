@@ -6,12 +6,18 @@ import { Routes } from '@angular/router';
 import { ListarComponent } from './listar/listar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { EditarComponent } from './editar/editar.component';
-import { HomeComponent } from './home/home.component';
+
 import { PaginaProdutoComponent } from './pagina-produto/pagina-produto.component';
 import { UsersListarComponent } from './users-listar/users-listar.component';
 import { UsersEditarComponent } from './users-editar/users-editar.component';
 import { UsersCadastrarComponent } from './users-cadastrar/users-cadastrar.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './account/login/login.component';
+import { HomeProdutosComponent } from './home-produtos/home-produtos.component';
+import { AuthGuard } from './account/shared/auth.guard';
+import { CreateAccountComponent } from './account/create-account/create-account.component';
+import { EditAccountComponent } from './account/edit-account/edit-account.component';
+import { AcessoUsuarioComponent } from './account/acesso-usuario/acesso-usuario.component';
+import { TestesComponent } from './testes/testes.component';
 
 
 export const ProdutosRoutes: Routes = [
@@ -22,39 +28,40 @@ export const ProdutosRoutes: Routes = [
   },
   {
     path: 'produtos/listar',
-    component: ListarComponent
-
+    component: ListarComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'produtos/cadastrar',
-    component: CadastrarComponent
-
+    component: CadastrarComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'produtos/editar/:id',
-    component: EditarComponent
-
+    component: EditarComponent,
+    canActivate:[AuthGuard]
   },
 
   {
     path: 'produtos/visualizar/:id',
-    component: VisualizarComponent
-
+    component: VisualizarComponent,
+    canActivate:[AuthGuard]
   },
 
   {
     path: 'estoquista/listar',
-    component: EstoquistaComponent
+    component: EstoquistaComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'estoquista/editar/:id',
-    component: EstoquistaEditarComponent
-
+    component: EstoquistaEditarComponent,
+    canActivate:[AuthGuard]
   },
 
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeProdutosComponent
   },
 
   {
@@ -64,18 +71,18 @@ export const ProdutosRoutes: Routes = [
 
   {
     path: 'users/listar',
-    component: UsersListarComponent
-
+    component: UsersListarComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'users/cadastrar',
-    component: UsersCadastrarComponent
-
+    component: UsersCadastrarComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'users/editar/:id',
-    component: UsersEditarComponent
-
+    component: UsersEditarComponent,
+    canActivate:[AuthGuard]
   },
 
   {
@@ -86,8 +93,29 @@ export const ProdutosRoutes: Routes = [
 
   {
     path: 'checkout',
-    component: CheckoutComponent
+    component: CheckoutComponent,
+    canActivate:[AuthGuard]
+  },
 
+  {
+    path: 'novo-usuario',
+    component: CreateAccountComponent
+  },
+
+  {
+    path: 'editar-usuario/:id',
+    component: EditAccountComponent,
+    canActivate:[AuthGuard]
+  },
+
+  {
+    path: 'acesso-usuario',
+    component: AcessoUsuarioComponent
+  },
+
+  {
+    path: 'testes',
+    component: TestesComponent
   }
 
 ];

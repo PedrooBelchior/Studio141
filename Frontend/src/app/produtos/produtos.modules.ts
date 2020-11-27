@@ -15,12 +15,16 @@ import { EditarComponent } from './editar/editar.component';
 import { VisualizarComponent } from './visualizar/visualizar.component';
 import { EstoquistaEditarComponent } from './estoquista/estoquista-editar/estoquista-editar.component';
 import { EstoquistaComponent } from './estoquista/estoquista.component';
-import { HomeComponent } from './home/home.component';
+
 import { PaginaProdutoComponent } from './pagina-produto/pagina-produto.component';
 import { UsersListarComponent } from './users-listar/users-listar.component';
 import { UsersEditarComponent } from './users-editar/users-editar.component';
-import { LoginComponent } from './login/login.component';
-
+import { LoginComponent } from './account/login/login.component';
+import { HomeProdutosComponent } from './home-produtos/home-produtos.component';
+import { CreateAccountComponent } from './account/create-account/create-account.component';
+import { EditAccountComponent } from './account/edit-account/edit-account.component';
+import { AcessoUsuarioComponent } from './account/acesso-usuario/acesso-usuario.component';
+import { TestesComponent } from './testes/testes.component';
 
 @NgModule({
   declarations: [ListarComponent,
@@ -29,13 +33,17 @@ import { LoginComponent } from './login/login.component';
     VisualizarComponent,
     EstoquistaComponent,
     EstoquistaEditarComponent,
-    HomeComponent,
+    HomeProdutosComponent,
     PaginaProdutoComponent,
     UsersListarComponent,
     UsersEditarComponent,
     UsersCadastrarComponent,
     LoginComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    CreateAccountComponent,
+    EditAccountComponent,
+    AcessoUsuarioComponent,
+    TestesComponent
   ],
   imports: [
     CommonModule,
